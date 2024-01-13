@@ -20,9 +20,9 @@ model.eval()
 
 mydb = mysql.connector.connect(
     host="127.0.0.1",
-    user="pawscans_fb",
-    password="Paws@2023",
-    database="pawscans_db"
+    user="root",
+    password="Develop@2021",
+    database="facultydetect"
 )
 mycursor = mydb.cursor()
 
