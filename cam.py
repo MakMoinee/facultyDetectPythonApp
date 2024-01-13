@@ -29,12 +29,11 @@ mycursor = mydb.cursor()
 def save_detection(image_name):
     print("Saving detection ...")
     detectionLogs = {}
-    detectionLogs['ip'] = ip 
     imagePath = f"./results/{image_name}" 
-    detectionLogs['createdAt'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    det = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     detectionLogs['status'] = "Unread"
     sql = "INSERT INTO results (facultyID, detectedDate, imagePath,status) VALUES (%s, %s, %s, %s, %s,%s)"
-    val = (1, imagePath, 'faculty detected')
+    val = (1,det, imagePath, 'faculty detected')
     mycursor.execute(sql, val)
     print("Successfully saved detection")
     
