@@ -32,7 +32,7 @@ def save_detection(image_name):
     imagePath = f"./results/{image_name}" 
     det = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     detectionLogs['status'] = "Unread"
-    sql = "INSERT INTO results (facultyID, detectedDate, imagePath,status) VALUES (%s, %s, %s, %s, %s,%s)"
+    sql = "INSERT INTO results (facultyID, detectedDate, imagePath,status) VALUES (%s, %s, %s, %s)"
     val = (1,det, imagePath, 'faculty detected')
     mycursor.execute(sql, val)
     print("Successfully saved detection")
