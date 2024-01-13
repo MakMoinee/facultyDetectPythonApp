@@ -14,7 +14,7 @@ def load_model(weights_path):
 
 model_path = "./faculty.pt"  # Replace this with the path to your custom YOLOv5 .pt file
 model = load_model(model_path)
-acceptable_confidence = 0.5
+acceptable_confidence = 0.1
 # Set the model to evaluation mode
 model.eval()
 
@@ -34,7 +34,7 @@ def save_detection(image_name):
     detectionLogs['createdAt'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     detectionLogs['status'] = "Unread"
     sql = "INSERT INTO results (facultyID, detectedDate, imagePath,status) VALUES (%s, %s, %s, %s, %s,%s)"
-    val = (1, imagePath, 'unread')
+    val = (1, imagePath, 'faculty detected')
     mycursor.execute(sql, val)
     print("Successfully saved detection")
     
