@@ -21,7 +21,7 @@ model.eval()
 mydb = mysql.connector.connect(
     host="127.0.0.1",
     user="root",
-    password="Develop@2021",
+    password="",
     database="facultydetect"
 )
 mycursor = mydb.cursor()
