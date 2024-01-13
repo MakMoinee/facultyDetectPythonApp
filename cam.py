@@ -30,9 +30,12 @@ def save_detection(image_name):
     print("Saving detection ...")
     detectionLogs = {}
     detectionLogs['ip'] = ip 
-    detectionLogs['imagePath'] = f"./results/{image_name}" 
+    imagePath = f"./results/{image_name}" 
     detectionLogs['createdAt'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     detectionLogs['status'] = "Unread"
+    sql = "INSERT INTO results (facultyID, detectedDate, imagePath,status) VALUES (%s, %s, %s, %s, %s,%s)"
+    val = (1, imagePath, 'unread')
+    mycursor.execute(sql, val)
     print("Successfully saved detection")
     
     
@@ -88,6 +91,7 @@ while True:
             print(f"Confidence: {detection['confidence']}, Name: {detection['name']}")
             im,s = save_image_with_boxes(frame,detections)
             save_detection(im)
+            
     # Display the resulting frame
     cv2.imshow('YOLOv5 Object Detection', frame)
 
