@@ -1,1 +1,1 @@
-.\Scripts\activate && py cam.py
+.\Scripts\activate && py sample.py
