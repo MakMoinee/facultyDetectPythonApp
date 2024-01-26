@@ -14,7 +14,7 @@ def load_model(weights_path):
 
 model_path = "./faculty.pt"  # Replace this with the path to your custom YOLOv5 .pt file
 model = load_model(model_path)
-acceptable_confidence = 0.1
+acceptable_confidence = 0.6
 # Set the model to evaluation mode
 model.eval()
 
@@ -36,7 +36,7 @@ def save_detection(image_name):
     val = (1,det, imagePath, 'faculty detected')
     mycursor.execute(sql, val)
     print("Successfully saved detection")
-    
+    mydb.commit()
     
     
 def save_image_with_boxes(frame, detections):
